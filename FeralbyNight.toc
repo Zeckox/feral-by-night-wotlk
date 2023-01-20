@@ -1,1 +1,11 @@
-## Interface: 30300## Title: Feral by Night## Notes: A full optional Feral Druid addon## Author: Nightcrowler of Runetotem (EU)## Version: 3.321## SavedVariables: FeralbyNightdbFeralbyNight.lua
+## Interface: 30401
+## Title: Feral by Night wotlk
+## Notes: An optional addon to know the rotation of the Feral
+## Notes-esES: Un addon opcional para conocer la rotación del Feral
+
+
+## Author: Zeckox (EU)
+## Version: 3.4
+## SavedVariables: FeralbyNightdb
+
+FeralbyNight.lua
