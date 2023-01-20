@@ -225,7 +225,7 @@ local language = GetLocale();
 		["Tempest Minion"] = 33998,
 	}
 	
-	--1-4---5-7---8-39 --aggiungi staticità dei proc con reset quando oo-combat
+	--1-4---5-7---8-39 --aggiungi staticitï¿½ dei proc con reset quando oo-combat
 	FeralbyNight.procaura={
 	["Misdirection"]=GetSpellInfo(34477),
 	["Hysteria"]=GetSpellInfo(49016),
@@ -1651,7 +1651,7 @@ end
 
 function FeralbyNight:CreateGUI()
 
-  local hudFrame = CreateFrame("Frame","FeralbyNightHudFrame",UIParent)
+  local hudFrame = CreateFrame("Frame","FeralbyNightHudFrame",UIParent, "BackdropTemplate")
   hudFrame:SetFrameStrata("Low")
   hudFrame:SetPoint("BOTTOM",0,150)
   hudFrame:SetBackdrop({
@@ -1659,7 +1659,7 @@ function FeralbyNight:CreateGUI()
   			})
 
 
-		local MeleeFrame = CreateFrame("SimpleHTML","FeralbyNightMeleeFrame",UIParent)
+		local MeleeFrame = CreateFrame("SimpleHTML","FeralbyNightMeleeFrame",UIParent, "BackdropTemplate")
 		MeleeFrame:SetFrameStrata("Low")
 		MeleeFrame:SetWidth(220); 
 		MeleeFrame:SetHeight(62);
@@ -1670,7 +1670,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
 
-  local displayFrame = CreateFrame("Frame","FeralbyNightDisplayFrame",UIParent)
+  local displayFrame = CreateFrame("Frame","FeralbyNightDisplayFrame",UIParent, "BackdropTemplate")
   displayFrame:SetFrameStrata("Low")
   displayFrame:SetWidth(250)
   displayFrame:SetHeight(90)
@@ -1678,14 +1678,14 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
  
-   local oocFrame = CreateFrame("Frame","FeralbyNightoocFrame",UIParent)
+   local oocFrame = CreateFrame("Frame","FeralbyNightoocFrame",UIParent, "BackdropTemplate")
   oocFrame:SetFrameStrata("Low")
   oocFrame:SetWidth(128)
   oocFrame:SetHeight(128)
   oocFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
-   local noticeFrame = CreateFrame("Frame","FeralbyNightnoticeFrame",UIParent)
+   local noticeFrame = CreateFrame("Frame","FeralbyNightnoticeFrame",UIParent, "BackdropTemplate")
   noticeFrame:SetFrameStrata("Low")
   noticeFrame:SetWidth(256)
   noticeFrame:SetHeight(256)
@@ -1693,7 +1693,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   
-    local cdmonFrame1 = CreateFrame("Frame","FeralbyNightcdmonFrame1",UIParent)
+    local cdmonFrame1 = CreateFrame("Frame","FeralbyNightcdmonFrame1",UIParent, "BackdropTemplate")
   cdmonFrame1:SetFrameStrata("Low")
   cdmonFrame1:SetWidth(175)
   cdmonFrame1:SetHeight(30)
@@ -1701,7 +1701,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   			
-     local cdmonFrame2 = CreateFrame("Frame","FeralbyNightcdmonFrame2",UIParent)
+     local cdmonFrame2 = CreateFrame("Frame","FeralbyNightcdmonFrame2",UIParent, "BackdropTemplate")
   cdmonFrame2:SetFrameStrata("Low")
   cdmonFrame2:SetWidth(175)
   cdmonFrame2:SetHeight(30)
@@ -1709,7 +1709,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
  
-     local cdmonFrame3 = CreateFrame("Frame","FeralbyNightcdmonFrame3",UIParent)
+     local cdmonFrame3 = CreateFrame("Frame","FeralbyNightcdmonFrame3",UIParent, "BackdropTemplate")
   cdmonFrame3:SetFrameStrata("Low")
   cdmonFrame3:SetWidth(175)
   cdmonFrame3:SetHeight(30)
@@ -1717,21 +1717,21 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   			
-     local bossfightFrame = CreateFrame("Frame","FeralbyNightbossfightFrame",UIParent)
+     local bossfightFrame = CreateFrame("Frame","FeralbyNightbossfightFrame",UIParent, "BackdropTemplate")
   bossfightFrame:SetFrameStrata("Low")
   bossfightFrame:SetWidth(175)
   bossfightFrame:SetHeight(30)
   bossfightFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
-     local myfightFrame = CreateFrame("Frame","FeralbyNightmyfightFrame",UIParent)
+     local myfightFrame = CreateFrame("Frame","FeralbyNightmyfightFrame",UIParent, "BackdropTemplate")
   myfightFrame:SetFrameStrata("Low")
   myfightFrame:SetWidth(175)
   myfightFrame:SetHeight(30)
   myfightFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
-      local procFrame = CreateFrame("Frame","FeralbyNightprocFrame",UIParent)
+      local procFrame = CreateFrame("Frame","FeralbyNightprocFrame",UIParent, "BackdropTemplate")
   procFrame:SetFrameStrata("Low")
   procFrame:SetWidth(175)
   procFrame:SetHeight(30)
@@ -1739,7 +1739,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   			
-  					local CPFrame = CreateFrame("SimpleHTML","FeralbyNightCPFrame",UIParent)
+  					local CPFrame = CreateFrame("SimpleHTML","FeralbyNightCPFrame",UIParent, "BackdropTemplate")
 		CPFrame:SetFrameStrata("Low")
 		CPFrame:SetWidth(40); 
 		CPFrame:SetHeight(20);
@@ -1749,7 +1749,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   
-    					local timetokillFrame = CreateFrame("SimpleHTML","FeralbyNighttimetokillFrame",UIParent)
+    					local timetokillFrame = CreateFrame("SimpleHTML","FeralbyNighttimetokillFrame", UIParent, "BackdropTemplate")
 		timetokillFrame:SetFrameStrata("Low")
 		timetokillFrame:SetWidth(40); 
 		timetokillFrame:SetHeight(20);
@@ -1759,7 +1759,7 @@ function FeralbyNight:CreateGUI()
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
   			
-    					local srFrame = CreateFrame("SimpleHTML","FeralbyNightsrFrame",UIParent)
+    					local srFrame = CreateFrame("SimpleHTML","FeralbyNightsrFrame",UIParent, "BackdropTemplate")
 		srFrame:SetFrameStrata("Low")
 		srFrame:SetWidth(40); 
 		srFrame:SetHeight(20);
@@ -1770,7 +1770,7 @@ function FeralbyNight:CreateGUI()
   			})
   			
   			
-			local energyFrame = CreateFrame("SimpleHTML","FeralbyNightenergyFrame",UIParent)
+			local energyFrame = CreateFrame("SimpleHTML","FeralbyNightenergyFrame",UIParent, "BackdropTemplate")
 		energyFrame:SetFrameStrata("Low")
 		energyFrame:SetWidth(40); 
 		energyFrame:SetHeight(20);
