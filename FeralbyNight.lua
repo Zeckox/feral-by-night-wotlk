@@ -1664,8 +1664,9 @@ function FeralbyNight:CreateGUI()
 		MeleeFrame:SetWidth(220); 
 		MeleeFrame:SetHeight(62);
 		MeleeFrame:SetPoint("BOTTOM",250,140)
-		MeleeFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize);
-		MeleeFrame:SetTextColor(1,1,1,1)
+		-- New parameter to usage https://www.wowinterface.com/forums/showthread.php?p=340983#post340983 Usage: self:SetFont(textType, fontFile, height, flags)
+		MeleeFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize, "");
+		MeleeFrame:SetTextColor("P",1,1,1)
 		MeleeFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
@@ -1744,7 +1745,7 @@ function FeralbyNight:CreateGUI()
 		CPFrame:SetWidth(40); 
 		CPFrame:SetHeight(20);
 		CPFrame:SetPoint("CENTER",-100,0)
-		CPFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize);
+		CPFrame:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize, "");
 		CPFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
@@ -1754,7 +1755,7 @@ function FeralbyNight:CreateGUI()
 		timetokillFrame:SetWidth(40); 
 		timetokillFrame:SetHeight(20);
 		timetokillFrame:SetPoint("CENTER",0,0)
-		timetokillFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize);
+		timetokillFrame:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize, "");
 		timetokillFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
@@ -1764,7 +1765,7 @@ function FeralbyNight:CreateGUI()
 		srFrame:SetWidth(40); 
 		srFrame:SetHeight(20);
 		srFrame:SetPoint("CENTER",0,-50)
-		srFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize);
+		srFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize, "");
 		srFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
@@ -1775,7 +1776,7 @@ function FeralbyNight:CreateGUI()
 		energyFrame:SetWidth(40); 
 		energyFrame:SetHeight(20);
 		energyFrame:SetPoint("CENTER",100,0)
-		energyFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize);
+		energyFrame:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize, "");
 		energyFrame:SetBackdrop({
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 32,
   			})
@@ -1916,25 +1917,25 @@ function FeralbyNight:CreateGUI()
   local displayFrame_misc = CreateFrame("Frame","$parent_misc", FeralbyNightDisplayFrame)
   local displayFrame_int = CreateFrame("Frame","$parent_int", FeralbyNightDisplayFrame)
   
-  local hudFrame_powerbar=CreateFrame("Frame","$parent_powerbar",FeralbyNightHudFrame);
-  local hudFrame_powerbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_powerbar);
-  local hudFrame_castbar=CreateFrame("Frame","$parent_castbar",FeralbyNightHudFrame);
-  local hudFrame_castbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_castbar);
-  local hudFrame_healthbar=CreateFrame("Frame","$parent_healthbar",FeralbyNightHudFrame);
-  local hudFrame_healthbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_healthbar);
-  local hudFrame_bosspowerbar=CreateFrame("Frame","$parent_bosspowerbar",FeralbyNightHudFrame);
-  local hudFrame_bosspowerbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_bosspowerbar);
-  local hudFrame_bosshealthbar=CreateFrame("Frame","$parent_bosshealthbar",FeralbyNightHudFrame);
-  local hudFrame_bosshealthbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_bosshealthbar);
-  local hudFrame_manabar=CreateFrame("Frame","$parent_manabar",FeralbyNightHudFrame);
-  local hudFrame_manabar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_manabar);
-  local hudFrame_threatbar=CreateFrame("Frame","$parent_threatbar",FeralbyNightHudFrame);
-  local hudFrame_threatbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_threatbar);
+  local hudFrame_powerbar=CreateFrame("Frame","$parent_powerbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_powerbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_powerbar, "BackdropTemplate");
+  local hudFrame_castbar=CreateFrame("Frame","$parent_castbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_castbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_castbar, "BackdropTemplate");
+  local hudFrame_healthbar=CreateFrame("Frame","$parent_healthbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_healthbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_healthbar, "BackdropTemplate");
+  local hudFrame_bosspowerbar=CreateFrame("Frame","$parent_bosspowerbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_bosspowerbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_bosspowerbar, "BackdropTemplate");
+  local hudFrame_bosshealthbar=CreateFrame("Frame","$parent_bosshealthbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_bosshealthbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_bosshealthbar, "BackdropTemplate");
+  local hudFrame_manabar=CreateFrame("Frame","$parent_manabar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_manabar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_manabar, "BackdropTemplate");
+  local hudFrame_threatbar=CreateFrame("Frame","$parent_threatbar",FeralbyNightHudFrame, "BackdropTemplate");
+  local hudFrame_threatbar_frame=CreateFrame("StatusBar","$parent_frame",FeralbyNightHudFrame_threatbar, "BackdropTemplate");
 
 
    
 for i = 1, 5 do
-    local cdmonFramedumb1 = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightcdmonFrame1)
+    local cdmonFramedumb1 = CreateFrame('SimpleHTML',"$parent_"..i, FeralbyNightcdmonFrame1, "BackdropTemplate")
     cdmonFramedumb1:SetWidth(30)
     cdmonFramedumb1:SetHeight(30)
     cdmonFramedumb1:SetPoint("LEFT",(i-1)*35,0)
@@ -1942,9 +1943,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     cdmonFramedumb1:SetBackdropColor(0, 0, 0,0)
-	cdmonFramedumb1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
+	cdmonFramedumb1:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
    
-  local t =cdmonFramedumb1:CreateTexture(nil,"Low")
+  local t =cdmonFramedumb1:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(cdmonFramedumb1)
   t:SetAlpha(0.1)
@@ -1953,7 +1954,7 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    local cdmonFramedumb2 = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightcdmonFrame2)
+    local cdmonFramedumb2 = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightcdmonFrame2, "BackdropTemplate")
     cdmonFramedumb2:SetWidth(30)
     cdmonFramedumb2:SetHeight(30)
     cdmonFramedumb2:SetPoint("LEFT",(i-1)*35,0)
@@ -1961,9 +1962,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     cdmonFramedumb2:SetBackdropColor(0, 0, 0,0)
-	cdmonFramedumb2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
+	cdmonFramedumb2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
    
-  local t =cdmonFramedumb2:CreateTexture(nil,"Low")
+  local t =cdmonFramedumb2:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(cdmonFramedumb2)
   t:SetAlpha(0.1)
@@ -1972,7 +1973,7 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    local cdmonFramedumb3 = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightcdmonFrame3)
+    local cdmonFramedumb3 = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightcdmonFrame3, "BackdropTemplate")
     cdmonFramedumb3:SetWidth(30)
     cdmonFramedumb3:SetHeight(30)
     cdmonFramedumb3:SetPoint("LEFT",(i-1)*35,0)
@@ -1980,9 +1981,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     cdmonFramedumb3:SetBackdropColor(0, 0, 0,0)
-	cdmonFramedumb3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
+	cdmonFramedumb3:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\" .. FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
    
-  local t =cdmonFramedumb3:CreateTexture(nil,"Low")
+  local t =cdmonFramedumb3:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(cdmonFramedumb3)
   t:SetAlpha(0.1)
@@ -1991,7 +1992,7 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    local bossfightFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightbossfightFrame)
+    local bossfightFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightbossfightFrame, "BackdropTemplate")
     bossfightFramedumb:SetWidth(30)
     bossfightFramedumb:SetHeight(30)
     bossfightFramedumb:SetPoint("LEFT",(i-1)*35,0)
@@ -1999,9 +2000,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     bossfightFramedumb:SetBackdropColor(0, 0, 0,0)
-	bossfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize);
+	bossfightFramedumb:SetFont("P", "Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize, "");
    
-  local t =bossfightFramedumb:CreateTexture(nil,"Low")
+  local t =bossfightFramedumb:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(bossfightFramedumb)
   t:SetAlpha(0.1)
@@ -2010,7 +2011,7 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    local myfightFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightmyfightFrame)
+    local myfightFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightmyfightFrame, "BackdropTemplate")
     myfightFramedumb:SetWidth(30)
     myfightFramedumb:SetHeight(30)
     myfightFramedumb:SetPoint("LEFT",(i-1)*35,0)
@@ -2018,9 +2019,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     myfightFramedumb:SetBackdropColor(0, 0, 0,0)
-	myfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize);
+	myfightFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize, "");
    
-  local t =myfightFramedumb:CreateTexture(nil,"Low")
+  local t =myfightFramedumb:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(myfightFramedumb)
   t:SetAlpha(0.1)
@@ -2029,7 +2030,7 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    local procFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightprocFrame)
+    local procFramedumb = CreateFrame('SimpleHTML',"$parent_"..i,FeralbyNightprocFrame, "BackdropTemplate")
     procFramedumb:SetWidth(30)
     procFramedumb:SetHeight(30)
     procFramedumb:SetPoint("LEFT",(i-1)*35,0)
@@ -2037,9 +2038,9 @@ for i = 1, 5 do
           bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 30,
   			}) 
     procFramedumb:SetBackdropColor(0, 0, 0,0)
-	procFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.procFramefont, FeralbyNightdb.procFramefontsize);
+	procFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.procFramefont, FeralbyNightdb.procFramefontsize, "");
    
-  local t =procFramedumb:CreateTexture(nil,"Low")
+  local t =procFramedumb:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(procFramedumb)
   t:SetAlpha(0.1)
@@ -2048,7 +2049,7 @@ for i = 1, 5 do
 end
 
 
-  local t =oocFrame:CreateTexture(nil,"Low")
+  local t =oocFrame:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(oocFrame)
   t:SetAlpha(0.5)
@@ -2056,7 +2057,7 @@ end
   FeralbyNight.ooctexture = t
   
 
-  local tt =noticeFrame:CreateTexture(nil,"Low")
+  local tt =noticeFrame:CreateTexture(nil, "BACKGROUND")
   tt:SetTexture(nil)
   tt:SetAllPoints(noticeFrame)
   tt:SetAlpha(0.5)
@@ -2174,7 +2175,7 @@ end
    hudFrame_bosshealthbar_frame:SetPoint("CENTER",0,0);
   hudFrame_bosshealthbar_frame:SetStatusBarTexture("Interface\\AddOns\\FeralbyNight\\arts\\statusbar\\"..FeralbyNightdb.bartexture);
   hudFrame_bosshealthbar_frame:SetStatusBarColor(0,1,0,0.5)
-  hudFrame_bosshealthbar_frame:SetMinMaxValues(0,UnitHealthMax("Target"))
+  hudFrame_bosshealthbar_frame:SetMinMaxValues(0,UnitHealthMax("target"))
   hudFrame_bosshealthbar_frame:SetOrientation("HORIZONTAL")
   
  
@@ -2218,14 +2219,14 @@ end
   hudFrame_threatbar_frame:SetOrientation("VERTICAL")
   
 
-  local t = displayFrame_last:CreateTexture(nil,"Low")
+  local t = displayFrame_last:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(displayFrame_last)
   t:SetAlpha(.8)
   displayFrame_last.texture = t
   FeralbyNight.textureList["last"] = t
 
-  t = displayFrame_current:CreateTexture(nil,"Low")
+  t = displayFrame_current:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:ClearAllPoints()
   t:SetAllPoints(displayFrame_current)
@@ -2234,21 +2235,21 @@ end
 
 
 
-  t = displayFrame_next:CreateTexture(nil,"Low")
+  t = displayFrame_next:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(displayFrame_next)
   t:SetAlpha(.8)
   displayFrame_next.texture = t
   FeralbyNight.textureList["next"] = t
 
-  t = displayFrame_misc:CreateTexture(nil,"Low")
+  t = displayFrame_misc:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(displayFrame_misc)
   t:SetAlpha(.8)
   displayFrame_misc.texture = t
   FeralbyNight.textureList["misc"] = t
 
-  t = displayFrame_int:CreateTexture(nil,"Low")
+  t = displayFrame_int:CreateTexture(nil, "BACKGROUND")
   t:SetTexture(nil)
   t:SetAllPoints(displayFrame_int)
   t:SetAlpha(.8)
@@ -2309,7 +2310,7 @@ end
 
 
   local text_cap = FeralbyNight.hudFrame_powerbar:CreateFontString("FeralbyNightHudFrame_powerbar_text","OVERLAY")
-  text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+  text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
   text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2321,7 +2322,7 @@ text_cap:SetShadowOffset(1,-1)
   FeralbyNight.hudFrame_powerbar.text=text_cap
   
   text_cap = FeralbyNight.hudFrame_bosshealthbar:CreateFontString("FeralbyNightHudFrame_bosshealthbar_text","OVERLAY")
-    text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+    text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
    text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2333,7 +2334,7 @@ text_cap:SetShadowOffset(1,-1)
   FeralbyNight.hudFrame_bosshealthbar.text=text_cap
 
   text_cap = FeralbyNight.hudFrame_healthbar:CreateFontString("FeralbyNightHudFrame_healthbar_text","OVERLAY")
-   text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+   text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
    text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2345,7 +2346,7 @@ text_cap:SetShadowOffset(1,-1)
    FeralbyNight.hudFrame_healthbar.text=text_cap
 
   text_cap = FeralbyNight.hudFrame_bosspowerbar:CreateFontString("FeralbyNightHudFrame_bosspowerbar_text","OVERLAY")
-    text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+    text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
   text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2358,7 +2359,7 @@ text_cap:SetShadowOffset(1,-1)
 
 
   text_cap = FeralbyNight.hudFrame_castbar:CreateFontString("FeralbyNightHudFrame_castbar_text","OVERLAY")
-      text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+      text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
    text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2371,7 +2372,7 @@ text_cap:SetShadowOffset(1,-1)
 
   
   text_cap = FeralbyNight.hudFrame_threatbar:CreateFontString("FeralbyNightHudFrame_threatbar_text","OVERLAY")
-   text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+   text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
    text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -2384,7 +2385,7 @@ text_cap:SetShadowOffset(1,-1)
 
   
   text_cap = FeralbyNight.hudFrame_manabar:CreateFontString("FeralbyNightHudFrame_manabar_text","OVERLAY")
-   text_cap:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize)
+   text_cap:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "")
    text_cap:ClearAllPoints()
   text_cap:SetPoint("CENTER",0,0) 
   text_cap:SetTextColor(1,1,1,1)
@@ -6075,7 +6076,7 @@ end
 
 function FeralbyNight:SetsrFont(num)
 FeralbyNightdb.srFramefont = FeralbyNight.fontvector[num]
-FeralbyNight.srFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize);
+FeralbyNight.srFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize, "");
 end
 
 
@@ -6093,7 +6094,7 @@ end
 
 function FeralbyNight:SetMeleeFont(num)
 FeralbyNightdb.MeleeFramefont = FeralbyNight.fontvector[num]
-FeralbyNight.MeleeFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize);
+FeralbyNight.MeleeFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize, "");
 end
 
 
@@ -6111,7 +6112,7 @@ end
 
 function FeralbyNight:SetenergyFont(num)
 FeralbyNightdb.energyFramefont = FeralbyNight.fontvector[num]
-FeralbyNight.energyFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize);
+FeralbyNight.energyFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize, "");
 end
 
 
@@ -6130,7 +6131,7 @@ end
 
 function FeralbyNight:SettimetokillFont(num)
 FeralbyNightdb.timetokillFramefont = FeralbyNight.fontvector[num]
-FeralbyNight.timetokillFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.timetokillFramefont, FeralbyNightdb.timetokillFramefontsize);
+FeralbyNight.timetokillFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.timetokillFramefont, FeralbyNightdb.timetokillFramefontsize, "");
 end
 
 
@@ -6150,7 +6151,7 @@ end
 
 function FeralbyNight:SetcpFont(num)
 FeralbyNightdb.cpFramefont = FeralbyNight.fontvector[num]
-FeralbyNight.CPFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize);
+FeralbyNight.CPFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize, "");
 end
 
 
@@ -6170,7 +6171,7 @@ function FeralbyNight:SetbossfightFont(num)
 FeralbyNightdb.bossfightFramefont = FeralbyNight.fontvector[num]
   do jj=1,5
   local bossfightFramedumb = _G["FeralbyNightbossfightFrame_"..jj];
-  bossfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize);
+  bossfightFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize, "");
   end
 end
 
@@ -6190,7 +6191,7 @@ function FeralbyNight:SetmyfightFont(num)
 FeralbyNightdb.myfightFramefont = FeralbyNight.fontvector[num]
   do jj=1,5
   local myfightFramedumb = _G["FeralbyNightmyfightFrame_"..jj];
-  myfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize);
+  myfightFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize, "");
   end
 end
 
@@ -6210,7 +6211,7 @@ function FeralbyNight:SetprocFont(num)
 FeralbyNightdb.procFramefont = FeralbyNight.fontvector[num]
   do jj=1,5
   local procFramedumb = _G["FeralbyNightprocFrame_"..jj];
-  procFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.procFramefont, FeralbyNightdb.procFramefontsize);
+  procFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.procFramefont, FeralbyNightdb.procFramefontsize, "");
   end
 end
 
@@ -6241,13 +6242,13 @@ end
 
 function FeralbyNight:SetbarFont(num)
 FeralbyNightdb.barfont = FeralbyNight.fontvector[num]
-FeralbyNight.hudFrame_manabar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_threatbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_castbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_bosspowerbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_healthbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_bosshealthbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_powerbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
+FeralbyNight.hudFrame_manabar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_threatbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_castbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_bosspowerbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_healthbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_bosshealthbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_powerbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
 end
 
 function FeralbyNight:Setbartexture(num)
@@ -6276,11 +6277,11 @@ end
 
 function FeralbyNight:SetcdmonFont1(num)
 FeralbyNightdb.cdmonFramefont1 = FeralbyNight.fontvector[num]
-FeralbyNightcdmonFrame1_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
+FeralbyNightcdmonFrame1_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
   end
 
 
@@ -6297,11 +6298,11 @@ end
 
 function FeralbyNight:SetcdmonFont2(num)
 FeralbyNightdb.cdmonFramefont2 = FeralbyNight.fontvector[num]
-FeralbyNightcdmonFrame2_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
+FeralbyNightcdmonFrame2_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
   end
 
 
@@ -6319,11 +6320,11 @@ end
 
 function FeralbyNight:SetcdmonFont3(num)
 FeralbyNightdb.cdmonFramefont3 = FeralbyNight.fontvector[num]
-FeralbyNightcdmonFrame3_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
+FeralbyNightcdmonFrame3_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
   end
 
 
@@ -7512,7 +7513,7 @@ function FeralbyNight:CreateOptionFrame()
   slider4012:SetMinMaxValues(6, 40)
   slider4012:SetValue(tonumber(FeralbyNightdb.srFramefontsize))
   slider4012:SetValueStep(1)
-  slider4012:SetScript("OnValueChanged", function(self) FeralbyNightdb.srFramefontsize=tostring(self:GetValue()); FeralbyNight.srFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)  
+  slider4012:SetScript("OnValueChanged", function(self) FeralbyNightdb.srFramefontsize=tostring(self:GetValue()); FeralbyNight.srFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.srFramefont, FeralbyNightdb.srFramefontsize, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)  
   _G[slider4012:GetName() .. "Low"]:SetText("6")
   _G[slider4012:GetName() .. "High"]:SetText("40")
   _G[slider4012:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.srFramefontsize))
@@ -7541,7 +7542,7 @@ function FeralbyNight:CreateOptionFrame()
   slider4022:SetMinMaxValues(6, 40)
   slider4022:SetValue(tonumber(FeralbyNightdb.energyFramefontsize))
   slider4022:SetValueStep(1)
-  slider4022:SetScript("OnValueChanged", function(self) FeralbyNightdb.energyFramefontsize=tostring(self:GetValue()); FeralbyNight.energyFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
+  slider4022:SetScript("OnValueChanged", function(self) FeralbyNightdb.energyFramefontsize=tostring(self:GetValue()); FeralbyNight.energyFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.energyFramefont, FeralbyNightdb.energyFramefontsize, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4022:GetName() .. "Low"]:SetText("6")
   _G[slider4022:GetName() .. "High"]:SetText("40")
   _G[slider4022:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.energyFramefontsize))
@@ -7570,7 +7571,7 @@ function FeralbyNight:CreateOptionFrame()
   slider4032:SetMinMaxValues(6, 40)
   slider4032:SetValue(tonumber(FeralbyNightdb.cpFramefontsize))
   slider4032:SetValueStep(1)
-  slider4032:SetScript("OnValueChanged", function(self) FeralbyNightdb.cpFramefontsize=tostring(self:GetValue()); FeralbyNight.CPFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end) 
+  slider4032:SetScript("OnValueChanged", function(self) FeralbyNightdb.cpFramefontsize=tostring(self:GetValue()); FeralbyNight.CPFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cpFramefont, FeralbyNightdb.cpFramefontsize, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end) 
   _G[slider4032:GetName() .. "Low"]:SetText("6")
   _G[slider4032:GetName() .. "High"]:SetText("40")
   _G[slider4032:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.cpFramefontsize))
@@ -7601,7 +7602,7 @@ function FeralbyNight:CreateOptionFrame()
   slider4042:SetMinMaxValues(6, 40)
   slider4042:SetValue(tonumber(FeralbyNightdb.timetokillFramefontsize))
   slider4042:SetValueStep(1)
-  slider4042:SetScript("OnValueChanged", function(self) FeralbyNightdb.timetokillFramefontsize=tostring(self:GetValue()); FeralbyNight.timetokillFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.timetokillFramefont, FeralbyNightdb.timetokillFramefontsize); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end) 
+  slider4042:SetScript("OnValueChanged", function(self) FeralbyNightdb.timetokillFramefontsize=tostring(self:GetValue()); FeralbyNight.timetokillFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.timetokillFramefont, FeralbyNightdb.timetokillFramefontsize, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end) 
   _G[slider4042:GetName() .. "Low"]:SetText("6")
   _G[slider4042:GetName() .. "High"]:SetText("40")
   _G[slider4042:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.timetokillFramefontsize))
@@ -7632,7 +7633,7 @@ function FeralbyNight:CreateOptionFrame()
   slider4052:SetMinMaxValues(6, 40)
   slider4052:SetValue(tonumber(FeralbyNightdb.MeleeFramefontsize))
   slider4052:SetValueStep(1)
-  slider4052:SetScript("OnValueChanged", function(self) FeralbyNightdb.MeleeFramefontsize=tostring(self:GetValue()); FeralbyNight.MeleeFrame:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
+  slider4052:SetScript("OnValueChanged", function(self) FeralbyNightdb.MeleeFramefontsize=tostring(self:GetValue()); FeralbyNight.MeleeFrame:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.MeleeFramefont, FeralbyNightdb.MeleeFramefontsize, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4052:GetName() .. "Low"]:SetText("6")
   _G[slider4052:GetName() .. "High"]:SetText("40")
   _G[slider4052:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.MeleeFramefontsize))
@@ -7662,11 +7663,11 @@ function FeralbyNight:CreateOptionFrame()
   slider4082:SetValue(tonumber(FeralbyNightdb.cdmonFramefontsize1))
   slider4082:SetValueStep(1)
   slider4082:SetScript("OnValueChanged", function(self) FeralbyNightdb.cdmonFramefontsize1=tostring(self:GetValue()); 
-FeralbyNightcdmonFrame1_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1);
-FeralbyNightcdmonFrame1_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
+FeralbyNightcdmonFrame1_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, "");
+FeralbyNightcdmonFrame1_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont1, FeralbyNightdb.cdmonFramefontsize1, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4082:GetName() .. "Low"]:SetText("6")
   _G[slider4082:GetName() .. "High"]:SetText("40")
   _G[slider4082:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.cdmonFramefontsize1))
@@ -7698,11 +7699,11 @@ FeralbyNightcdmonFrame1_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\
   slider4092:SetValue(tonumber(FeralbyNightdb.cdmonFramefontsize2))
   slider4092:SetValueStep(1)
   slider4092:SetScript("OnValueChanged", function(self) FeralbyNightdb.cdmonFramefontsize2=tostring(self:GetValue()); 
-FeralbyNightcdmonFrame2_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2);
-FeralbyNightcdmonFrame2_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
+FeralbyNightcdmonFrame2_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, "");
+FeralbyNightcdmonFrame2_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont2, FeralbyNightdb.cdmonFramefontsize2, ""); _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4092:GetName() .. "Low"]:SetText("6")
   _G[slider4092:GetName() .. "High"]:SetText("40")
   _G[slider4092:GetName() .. "Text"]:SetText(tonumber(FeralbyNightdb.cdmonFramefontsize2))
@@ -7732,11 +7733,11 @@ FeralbyNightcdmonFrame2_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\
   slider4103:SetValue(tonumber(FeralbyNightdb.cdmonFramefontsize3))
   slider4103:SetValueStep(1)
   slider4103:SetScript("OnValueChanged", function(self) FeralbyNightdb.cdmonFramefontsize3=tostring(self:GetValue()); 
-  FeralbyNightcdmonFrame3_1:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_2:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_3:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_4:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
-FeralbyNightcdmonFrame3_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3);
+  FeralbyNightcdmonFrame3_1:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_2:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_3:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_4:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
+FeralbyNightcdmonFrame3_5:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.cdmonFramefont3, FeralbyNightdb.cdmonFramefontsize3, "");
    _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4103:GetName() .. "Low"]:SetText("6")
   _G[slider4103:GetName() .. "High"]:SetText("40")
@@ -7768,13 +7769,13 @@ FeralbyNightcdmonFrame3_5:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\
   slider4123:SetValue(tonumber(FeralbyNightdb.barfontsize))
   slider4123:SetValueStep(1)
   slider4123:SetScript("OnValueChanged", function(self) FeralbyNightdb.barfontsize=tostring(self:GetValue()); 
-FeralbyNight.hudFrame_manabar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_threatbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_castbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_bosspowerbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_healthbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_bosshealthbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
-FeralbyNight.hudFrame_powerbar.text:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize);
+FeralbyNight.hudFrame_manabar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_threatbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_castbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_bosspowerbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_healthbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_bosshealthbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
+FeralbyNight.hudFrame_powerbar.text:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.barfont, FeralbyNightdb.barfontsize, "");
 _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider4123:GetName() .. "Low"]:SetText("6")
   _G[slider4123:GetName() .. "High"]:SetText("40")
@@ -8069,7 +8070,7 @@ end
   slider5062:SetScript("OnValueChanged", function(self) FeralbyNightdb.bossfightFramefontsize=tostring(self:GetValue()); 
   do jj=1,5
   local bossfightFramedumb = _G["FeralbyNightbossfightFrame_"..jj];
-  bossfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize);
+  bossfightFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.bossfightFramefont, FeralbyNightdb.bossfightFramefontsize, "");
   end; _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider5062:GetName() .. "Low"]:SetText("6")
   _G[slider5062:GetName() .. "High"]:SetText("50")
@@ -8107,7 +8108,7 @@ end
   slider5072:SetScript("OnValueChanged", function(self) FeralbyNightdb.myfightFramefontsize=tostring(self:GetValue()); 
   do jj=1,5
   local myfightFramedumb = _G["FeralbyNightmyfightFrame_"..jj];
-  myfightFramedumb:SetFont("Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize);
+  myfightFramedumb:SetFont("P","Interface\\AddOns\\FeralbyNight\\arts\\fonts\\"..FeralbyNightdb.myfightFramefont, FeralbyNightdb.myfightFramefontsize, "");
   end; _G[self:GetName() .. "Text"]:SetText(self:GetValue()) end)
   _G[slider5072:GetName() .. "Low"]:SetText("6")
   _G[slider5072:GetName() .. "High"]:SetText("50")
