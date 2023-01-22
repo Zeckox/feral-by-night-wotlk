@@ -1,8 +1,12 @@
 --
 -- Feral by Night
 -- An addon by Nightcrowler of Runetotem, with credits Yukizawa (creator of the original version of the suggester frame -FaceMauler-) of Aggramar, Aytherine of Maelstrom
+-- Re write and fixed by Zeckox (EU)
 
--- Our base array
+local utils = require "functions.utils"
+
+
+--#region Our base array
 FeralbyNight = {}
 
 
@@ -43,20 +47,6 @@ FeralbyNight.shredglyph = 0;
 FeralbyNight.ripglyph = 0;
 FeralbyNight.srglyph = 0;
 FeralbyNight.crit_meta = 0;
-
--- Define list of terms that need translation.
-function FbN_GetSpellNameById(spellId)
-	if (spellId == nil) then
-		return nil
-	end
-	local spellName, rank, _, _, _, _, _, _, _ = GetSpellInfo(spellId)
-	if rank == nil then
-		return spellName
-	elseif string.len(rank) > 1 then
-		return spellName .. "(" .. rank .. ")"
-	end
-	return spellName
-end
 
 Bearform, _, _, _, _, _, _, _, _ = GetSpellInfo(9634);
 CatForm, _, _, _, _, _, _, _, _ = GetSpellInfo(768);
@@ -105,23 +95,23 @@ FeralbyNight.L = {
 local language = GetLocale();
 
 
-FeralbyNight.L["Rake"] = FbN_GetSpellNameById(48574)
+FeralbyNight.L["Rake"] = utils.FbN_GetSpellNameById(48574)
 FeralbyNight.L["Rake Debuff"] = GetSpellInfo(1822)
-FeralbyNight.L["Rip"] = FbN_GetSpellNameById(49800)
+FeralbyNight.L["Rip"] = utils.FbN_GetSpellNameById(49800)
 FeralbyNight.L["Rip Debuff"] = GetSpellInfo(1079)
-FeralbyNight.L["Mangle_Cat"] = FbN_GetSpellNameById(48566)
+FeralbyNight.L["Mangle_Cat"] = utils.FbN_GetSpellNameById(48566)
 FeralbyNight.L["Mangle (Cat) Debuff"] = GetSpellInfo(33983)
-FeralbyNight.L["Mangle_Bear"] = FbN_GetSpellNameById(48564)
+FeralbyNight.L["Mangle_Bear"] = utils.FbN_GetSpellNameById(48564)
 FeralbyNight.L["Mangle (Bear) Debuff"] = GetSpellInfo(33987)
 FeralbyNight.L["Trauma"] = GetSpellInfo(46857)
-FeralbyNight.L["Faerie_Fire"] = FbN_GetSpellNameById(770)
-FeralbyNight.L["Clearcasting"] = FbN_GetSpellNameById(16870)
+FeralbyNight.L["Faerie_Fire"] = utils.FbN_GetSpellNameById(770)
+FeralbyNight.L["Clearcasting"] = utils.FbN_GetSpellNameById(16870)
 FeralbyNight.L["Savage_Roar"] = GetSpellInfo(52610)
-FeralbyNight.L["Tigers_Fury"] = FbN_GetSpellNameById(50213)
-FeralbyNight.L["Berserk"] = FbN_GetSpellNameById(50334)
-FeralbyNight.L["Shred"] = FbN_GetSpellNameById(48572)
-FeralbyNight.L["Ferocious_Bite"] = FbN_GetSpellNameById(48577)
-FeralbyNight.L["Faerie_Fire_Feral"] = FbN_GetSpellNameById(16857)
+FeralbyNight.L["Tigers_Fury"] = utils.FbN_GetSpellNameById(50213)
+FeralbyNight.L["Berserk"] = utils.FbN_GetSpellNameById(50334)
+FeralbyNight.L["Shred"] = utils.FbN_GetSpellNameById(48572)
+FeralbyNight.L["Ferocious_Bite"] = utils.FbN_GetSpellNameById(48577)
+FeralbyNight.L["Faerie_Fire_Feral"] = utils.FbN_GetSpellNameById(16857)
 FeralbyNight.L["Cat_Form"] = GetSpellInfo(768)
 FeralbyNight.L["Sting"] = GetSpellInfo(56631)
 FeralbyNight.L["Acid_Spit"] = GetSpellInfo(55754)
@@ -130,24 +120,24 @@ FeralbyNight.L["Sunder_Armor"] = GetSpellInfo(7386)
 FeralbyNight.L["Heart_of_the_Crusader"] = GetSpellInfo(20337)
 FeralbyNight.L["Master_Poisoner"] = GetSpellInfo(58410)
 FeralbyNight.L["Totem_of_Wrath"] = GetSpellInfo(30706)
-FeralbyNight.L["Lacerate"] = FbN_GetSpellNameById(48568)
+FeralbyNight.L["Lacerate"] = utils.FbN_GetSpellNameById(48568)
 FeralbyNight.L["Lacerate Debuff"] = GetSpellInfo(33745)
-FeralbyNight.L["Maul"] = FbN_GetSpellNameById(48480)
-FeralbyNight.L["Demoralizing_Roar"] = FbN_GetSpellNameById(48560)
+FeralbyNight.L["Maul"] = utils.FbN_GetSpellNameById(48480)
+FeralbyNight.L["Demoralizing_Roar"] = utils.FbN_GetSpellNameById(48560)
 FeralbyNight.L["Demoralizing Roar Debuff"] = GetSpellInfo(99)
 FeralbyNight.L["Demoralizing_Shout"] = GetSpellInfo(25203)
 FeralbyNight.L["Curse_of_Weakness"] = GetSpellInfo(50511)
 FeralbyNight.L["Vindication"] = GetSpellInfo(26017)
-FeralbyNight.L["Barkskin"] = FbN_GetSpellNameById(22812)
-FeralbyNight.L["Survival_Instincts"] = FbN_GetSpellNameById(61336)
-FeralbyNight.L["Swipe_Bear"] = FbN_GetSpellNameById(48562)
-FeralbyNight.L["Growl"] = FbN_GetSpellNameById(6795)
+FeralbyNight.L["Barkskin"] = utils.FbN_GetSpellNameById(22812)
+FeralbyNight.L["Survival_Instincts"] = utils.FbN_GetSpellNameById(61336)
+FeralbyNight.L["Swipe_Bear"] = utils.FbN_GetSpellNameById(48562)
+FeralbyNight.L["Growl"] = utils.FbN_GetSpellNameById(6795)
 FeralbyNight.L["Dire_Bear_Form"] = GetSpellInfo(9634)
-FeralbyNight.L["Enrage"] = FbN_GetSpellNameById(5229)
+FeralbyNight.L["Enrage"] = utils.FbN_GetSpellNameById(5229)
 FeralbyNight.L["Heroic_Presence_a"] = GetSpellInfo(28878)
 FeralbyNight.L["Heroic_Presence_b"] = GetSpellInfo(6562)
-FeralbyNight.L["Maim"] = FbN_GetSpellNameById(49802)
-FeralbyNight.L["Bash"] = FbN_GetSpellNameById(8983)
+FeralbyNight.L["Maim"] = utils.FbN_GetSpellNameById(49802)
+FeralbyNight.L["Bash"] = utils.FbN_GetSpellNameById(8983)
 FeralbyNight.L["Rend"] = GetSpellInfo(772)
 FeralbyNight.L["Garrote"] = GetSpellInfo(703)
 FeralbyNight.L["Rupture"] = GetSpellInfo(1943)
@@ -436,28 +426,28 @@ FeralbyNight.bossaura = {
 }
 
 FeralbyNight.bosscast = {
-	["Emalon - Lightning Nova"] = FbN_GetSpellNameById(64216),
-	["Razor-Watcher-Chain 1"] = FbN_GetSpellNameById(64758), --
-	["Razor-Watcher-Chain 2"] = FbN_GetSpellNameById(64759), --
-	["Steelbreaker - Council - Fusion Punch"] = FbN_GetSpellNameById(61903), --
-	["Stormcaller - Council - Chain Lightning"] = FbN_GetSpellNameById(61879), --
-	["Stormcaller - Council - Lightning Whirl"] = FbN_GetSpellNameById(61915), --
-	["Stormcaller - Council - Overload"] = FbN_GetSpellNameById(61869),
-	["Auriaya - Sonic Screech"] = FbN_GetSpellNameById(64422),
-	["Auriaya - Sentinel Blast"] = FbN_GetSpellNameById(64389), --
-	["Auriaya - Terrifying Screech"] = FbN_GetSpellNameById(64386),
-	["Freya - Ground Tremor"] = FbN_GetSpellNameById(62437),
-	["Stonebark - Fist of Stone"] = FbN_GetSpellNameById(62344),
-	["Mimiron - Plasma Blast"] = FbN_GetSpellNameById(62997),
-	["Mimiron - Shock Blast"] = FbN_GetSpellNameById(63631),
-	["Mimiron - Laser Barrage"] = FbN_GetSpellNameById(63293),
-	["Thorim - Acolyte - Greater Heal"] = FbN_GetSpellNameById(62334), --
-	["Thorim - Evoker - Runic Mending"] = FbN_GetSpellNameById(62328), --
-	["Vezax - Surge of Darkness"] = FbN_GetSpellNameById(62662),
-	["Vezax - Searing Flame"] = FbN_GetSpellNameById(62611), --
-	["Yogg - Dark volley"] = FbN_GetSpellNameById(63038), --
-	["Yogg - Drain Life"] = FbN_GetSpellNameById(64159), --
-	["Yogg - Drain Life2"] = FbN_GetSpellNameById(64160), --
+	["Emalon - Lightning Nova"] = utils.FbN_GetSpellNameById(64216),
+	["Razor-Watcher-Chain 1"] = utils.FbN_GetSpellNameById(64758), --
+	["Razor-Watcher-Chain 2"] = utils.FbN_GetSpellNameById(64759), --
+	["Steelbreaker - Council - Fusion Punch"] = utils.FbN_GetSpellNameById(61903), --
+	["Stormcaller - Council - Chain Lightning"] = utils.FbN_GetSpellNameById(61879), --
+	["Stormcaller - Council - Lightning Whirl"] = utils.FbN_GetSpellNameById(61915), --
+	["Stormcaller - Council - Overload"] = utils.FbN_GetSpellNameById(61869),
+	["Auriaya - Sonic Screech"] = utils.FbN_GetSpellNameById(64422),
+	["Auriaya - Sentinel Blast"] = utils.FbN_GetSpellNameById(64389), --
+	["Auriaya - Terrifying Screech"] = utils.FbN_GetSpellNameById(64386),
+	["Freya - Ground Tremor"] = utils.FbN_GetSpellNameById(62437),
+	["Stonebark - Fist of Stone"] = utils.FbN_GetSpellNameById(62344),
+	["Mimiron - Plasma Blast"] = utils.FbN_GetSpellNameById(62997),
+	["Mimiron - Shock Blast"] = utils.FbN_GetSpellNameById(63631),
+	["Mimiron - Laser Barrage"] = utils.FbN_GetSpellNameById(63293),
+	["Thorim - Acolyte - Greater Heal"] = utils.FbN_GetSpellNameById(62334), --
+	["Thorim - Evoker - Runic Mending"] = utils.FbN_GetSpellNameById(62328), --
+	["Vezax - Surge of Darkness"] = utils.FbN_GetSpellNameById(62662),
+	["Vezax - Searing Flame"] = utils.FbN_GetSpellNameById(62611), --
+	["Yogg - Dark volley"] = utils.FbN_GetSpellNameById(63038), --
+	["Yogg - Drain Life"] = utils.FbN_GetSpellNameById(64159), --
+	["Yogg - Drain Life2"] = utils.FbN_GetSpellNameById(64160), --
 }
 
 
@@ -550,49 +540,6 @@ FeralbyNight.texturevector = {
 	"Wisps.tga",
 	"Xeon.tga",
 }
-
-
-
--- Return the first index with the given value (or nil if not found).
-function IndexOf(array, value)
-    for i, v in ipairs(array) do
-        if v == value then
-            return i
-        end
-    end
-    return 99
-end
-
-
---GUID Parser
-function ParseGUID(guid)
-	if guid == nil then
-		FeralbyNight.currentTarget.id = 0000;
-		--print("No target, ID #",FeralbyNight.currentTarget.id)
-		return
-	end
-
-	local first3 = tonumber("0x" .. strsub(guid, 3, 5))
-	local unitType = bit.band(first3, 0x00f)
-	FeralbyNight.currentTarget.unitType = unitType;
-	if (unitType == 0x000) then
-		--print("Player, ID #", strsub(guid,6))
-	elseif (unitType == 0x003) then
-		local creatureID = tonumber("0x" .. strsub(guid, 9, 12))
-		FeralbyNight.currentTarget.id = creatureID;
-		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
-	elseif (unitType == 0x004) then
-		local petID = tonumber("0x" .. strsub(guid, 6, 12))
-		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
-		-- print("Pet, ID #",petID,"spawn #",spawnCounter)
-	elseif (unitType == 0x005) then
-		local creatureID = tonumber("0x" .. strsub(guid, 9, 12))
-		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
-		-- print("Vehicle, ID #",creatureID,"spawn #",spawnCounter)
-	end
-end
-
---
 
 
 
@@ -1131,7 +1078,37 @@ FeralbyNight.damage = nil;
 FeralbyNight.ooctexture = nil;
 FeralbyNight.noticetexture = nil;
 
+--#endregion
 
+--GUID Parser
+function ParseGUID(guid)
+	if guid == nil then
+		FeralbyNight.currentTarget.id = 0000;
+		--if (UtilsFunction.DevMode) then print("No target, ID #",FeralbyNight.currentTarget.id) end
+		return
+	end
+
+	local first3 = tonumber("0x" .. strsub(guid, 3, 5))
+	local unitType = bit.band(first3, 0x00f)
+	FeralbyNight.currentTarget.unitType = unitType;
+	if (unitType == 0x000) then
+		--if (UtilsFunction.DevMode) then  print("Player, ID #", strsub(guid,6)) end
+	elseif (unitType == 0x003) then
+		local creatureID = tonumber("0x" .. strsub(guid, 9, 12))
+		FeralbyNight.currentTarget.id = creatureID;
+		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
+	elseif (unitType == 0x004) then
+		local petID = tonumber("0x" .. strsub(guid, 6, 12))
+		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
+		-- if (UtilsFunction.DevMode) then print("Pet, ID #",petID,"spawn #",spawnCounter) end
+	elseif (unitType == 0x005) then
+		local creatureID = tonumber("0x" .. strsub(guid, 9, 12))
+		local spawnCounter = tonumber("0x" .. strsub(guid, 13))
+		-- if (UtilsFunction.DevMode) then print("Vehicle, ID #",creatureID,"spawn #",spawnCounter) end
+	end
+end
+
+--#region Events 
 -- Our sneaky frame to watch for events ... checks FeralbyNight.events[] for the function.  Passes all args.
 FeralbyNight.eventFrame = CreateFrame("Frame")
 FeralbyNight.eventFrame:SetScript("OnEvent", function(self, event, ...)
@@ -1182,6 +1159,8 @@ function FeralbyNight.events.ADDON_LOADED(addon)
 		FeralbyNight.eventFrame:UnregisterEvent("PLAYER_EQUIPMENT_CHANGED")
 		return
 	end
+
+	--#endregion
 
 	-- Default saved variables
 	if not FeralbyNightdb then
@@ -2549,8 +2528,8 @@ function FeralbyNight:OnUpdate(elapsed)
 	FeralbyNight.timeSinceLastUpdate = FeralbyNight.timeSinceLastUpdate + elapsed;
 	while (FeralbyNight.timeSinceLastUpdate >= FeralbyNightdb.updateinterval) do
 
-		local catform, _, _, _, _, _, _, _, _ = UnitAura("player", IndexOf(FeralbyNight.L, "Cat_Form"))
-		local bearform, _, _, _, _, _, _, _, _ = UnitAura("player", IndexOf(FeralbyNight.L, "Dire_Bear_Form"))
+		local catform, _, _, _, _, _, _, _, _ = UnitAura("player", utils.IndexOf(FeralbyNight.L, "Cat_Form"))
+		local bearform, _, _, _, _, _, _, _, _ = UnitAura("player", utils.IndexOf(FeralbyNight.L, "Dire_Bear_Form"))
 
 		ParseGUID(UnitGUID("target"))
 		if FeralbyNight.playertargetchanged == 1 then
@@ -8990,3 +8969,5 @@ end
 function FeralbyNight.Options()
 	InterfaceOptionsFrame_OpenToCategory(_G["FeralbyNightOptions"])
 end
+
+return FeralbyNight
